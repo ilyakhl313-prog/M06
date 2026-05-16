@@ -1,0 +1,133 @@
+---
+title: "M06-Reflection Essay: Advanced Data Wrangling"
+author: "Ilya Khanal"
+date: "May 15, 2026"
+format: 
+  html: 
+    toc: true
+    toc-depth: 4
+    number-sections: true
+    code-link: true
+    embed-resources: true
+    theme: cosmo
+editor: visual
+execute: 
+  freeze: auto
+---
+
+# TidyVerse Tricks
+
+## Prompt Question
+
+Summarize what you learned about Tidyverse tricks presented in Step 1 by focusing on the new things you learned that were not dealt with in M05.
+
+### Answer
+
+In this video, I learned about the details on how to properly use tidyverse using shortcuts and tricks to make working on projects easier/more efficient.  One thing I specifically learned was how I can use the pipeline to organize my code chunks better as well as mutating and grouping my data with : `mutate_()` and `group_by()` 
+
+# David Robinson Video
+
+## Prompt Question
+
+What do you think about David Robinson's impromptu screencast performance in Step 2?  How much were you able to understand?
+
+### Answer
+
+This video showcased how seamlessly your workflow can go once you get a full grasp on all the shortcuts and tricks and how intuitive it can feel.  I was able to understand some basic components of the video but it was hard to fully follow alon because it was going by really fast and utilizing tools and tricks that I am not as familiar with.
+
+# Data Cleansing Lecture
+
+## Prompt Question
+
+In Step 3, you saw two videos, one showing initial data cleaning and the other showing further cleaning. Describe the two processes. What are the big differences between the two? How do the differences result in the differences in final sample size? 
+
+### Answer
+
+The first phase utilized tools such as prolific and qualtries in order to organize and prepare to structure the raw data.  This way, you can filter your variables based on elegibility, relevance, removing clutter, etc.  
+
+::: {.callout-tip}
+used `filter()` , `counte()` , and `mutate()`
+:::
+
+During the second phase, more details were added to filter the data such as:
+
+- creating new variables
+- fixing labels
+- improving measurement accuracy
+
+### Differences of the two phases
+
+First phase was working to organize the raw data and removing inconsistancies you did not need.  This delt with the actual data answers and seeing which ones were valid to use and which ones should be discarded.  Second phase was looking at the different variables and labels and making sense of the actual data.
+
+# Revealjs Presentation
+
+## Prompt Question
+
+In Step 4, you learned how to create an Revealjs presentation. What's your impression of the Revealjs presentation? Describe its capabilities as you learned from the video. What are its strengths and weaknesses compared with PPT?
+
+### Answer
+
+Compared to PPT, Revealjs is able to visualize data a lot better.  It can be very helpful for wanting to organize data and analyzing raw data sets in an easier and efficient manner that gives you good visuals as well.  Compared to PPT, I do not think it has as many options for making it fit different aesthetics and colouring options are limited, but the functions and tools to aid in stat visuals is very vast.  Another weakness is that it requires some knowledge on coding whereas powerpoint is easy for beginners with no experience.
+
+# Advanced Data Wrangling
+
+## Prompt Question
+
+My advanced wrangling lecture in Step 6 introduced new concepts not covered in M05, such as joining relational databases. Pick three of them, describe when to use them, and give one coding example along with an output for each function. To clarify, you are expected to do literate programming by weaving your narratives with the code.
+
+### Answer
+
+#### inner__join()
+
+This conjoins two data sets and matches the rows together:
+
+
+```{r}
+library(dplyr)
+
+df1 <- data.frame(id = c(1, 2, 3), name = c("A", "B", "C"))
+df2 <- data.frame(id = c(2, 3, 4), score = c(80, 90, 100))
+
+inner_join(df1, df2, by = "id")
+```
+
+#### left_join()
+
+this combines the two data sets but only keeps the first row and matches the second one's IDs with that first data set.  
+
+```{r}
+left_join(df1, df2, by = "id")
+```
+
+#### row_number()
+
+this tool helps assign a ranking/number to the rows
+
+```{r}
+library(dplyr)
+
+df <- data.frame(score = c(50, 80, 70))
+
+df |>
+  mutate(rank = row_number(score))
+```
+
+# Reflection
+
+## Prompt
+
+Data wrangling is like laying a foundation/basement for a building, while visualization is building a structure above the basement. Working in a basement is not a glamorous job at all. No one notices it; people will see what they can see above the ground and judge it, but without the hard work you did in the basement, the building will never stand well. Besides, wrangling is hard. You learned dplyr and tidyr in this module, but there is still more to learn in M07 and M08. What did you like the most about working with the tools you learned in this module? Elaborate on your point. 
+
+### Answer
+
+I enjoyed learning about the shortcuts the most and seeing how intuitive it can become to use when you grow familiar with the software and all of its functions.
+
+# Challenges
+
+## What challenges did you face?
+
+### Anser
+
+I think figuring out how to do the shortcuts was the hardest part.  As well as understanding Revealjs and how to utilize it properly.  I have never coded before so it is not as intuitive to me as it might be for compsci experts.
+
+
